@@ -5,6 +5,16 @@
       "type": "motoko"
     }
   },
+  "networks": {
+    "staging": {
+      "providers": ["https://icp0.io"],
+      "type": "persistent"
+    },
+    "development": {
+      "providers": ["https://icp0.io"],
+      "type": "persistent"
+    }
+  },
   "defaults": {
     "build": {
       "args": "",
