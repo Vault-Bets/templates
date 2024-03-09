@@ -19,6 +19,12 @@ jobs:
       - name: Install dfx
         uses: dfinity/setup-dfx@main
 
+      - name: Install mops
+        run: npm i -g ic-mops@latest
+
+      - name: Install mops packages
+        run: mops install
+
       - name: Deploy to development
         if: github.base_ref == 'development'
         run: |
