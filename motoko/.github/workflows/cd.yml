@@ -30,7 +30,7 @@ jobs:
         run: |
           echo ${{ secrets.DEVELOPMENT }} | base64 --decode > development.pem
           dfx identity import --storage-mode=plaintext development development.pem
-          dfx identity use development
+          dfx identity use development -y
           dfx deploy --network development backend
 
       - name: Deploy to staging
@@ -42,7 +42,7 @@ jobs:
           else
             echo ${{ secrets.STAGING }} | base64 --decode > staging.pem
             dfx identity import --storage-mode=plaintext staging staging.pem
-            dfx identity use staging
+            dfx identity use staging -y
             dfx deploy --network staging backend
           fi
 
@@ -55,6 +55,6 @@ jobs:
           else
             echo ${{ secrets.PROD }} | base64 --decode > prod.pem
             dfx identity import --storage-mode=plaintext prod prod.pem
-            dfx identity use prod
+            dfx identity use prod -y
             dfx deploy --network ic backend
           fi
